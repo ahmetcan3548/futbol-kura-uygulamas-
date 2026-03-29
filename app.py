@@ -7,13 +7,15 @@ st.set_page_config(page_title="2025-2026 Pro Kura", page_icon="⚽", layout="cen
 
 # --- 1. VERİ SETİ ---
 ligler_verisi = {
-    "Süper Lig 🇹🇷": ["Galatasaray", "Fenerbahçe", "Beşiktaş", "Trabzonspor", "Başakşehir", "Samsunspor", "Eyüpspor", "Göztepe", "Bodrum FK"],
-    "Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿": ["Man City", "Arsenal", "Liverpool", "Aston Villa", "Tottenham", "Man United", "Chelsea", "Newcastle"],
-    "La Liga 🇪🇸": ["Real Madrid", "Barcelona", "Atletico Madrid", "Girona", "Athletic Bilbao", "Real Sociedad", "Sevilla"],
-    "Bundesliga 🇩🇪": ["Bayer Leverkusen", "Bayern Münih", "Stuttgart", "RB Leipzig", "Dortmund", "Frankfurt"],
-    "Serie A 🇮🇹": ["Inter", "Milan", "Juventus", "Atalanta", "Napoli", "Roma", "Lazio"],
-    "Ligue 1 🇫🇷": ["PSG", "Monaco", "Brest", "Lille", "Nice", "Lyon", "Marsilya"],
-    "Portekiz 🇵🇹": ["Sporting CP", "Benfica", "Porto", "Braga", "Vitoria SC"]
+    "Süper Lig": ["Galatasaray", "Fenerbahçe", "Beşiktaş", "Trabzonspor", "Başakşehir", "Samsunspor", "Eyüpspor", "Göztepe", "Alanyaspor", "Gaziantep Fk", "Antalyaspor", "Kasımpaşa", "Kocaelispor", "Karagümrük", "Gençlerbirliği", "Konyaspor", "Kayserispor", "Rizespor"],
+    "Premier League": ["Man City", "Arsenal", "Liverpool", "Aston Villa", "Tottenham", "Man United", "Chelsea", "Newcastle", "Brentford", "Everton", "Fulham", "Brighton", "Sunderland", "Bournemouth", "Crystal Palace", "Leeds United", "Nottingham Forrest", "West Ham United", "Burnley", "Wolverhampton"],
+    "La Liga": ["Real Madrid", "Barcelona", "Atletico Madrid", "Girona", "Athletic Bilbao", "Real Sociedad", "Sevilla", "Villareal", "Real Betis", "Celta", "Osasuna", "Getafe", "Espanyol", "Valencia", "Rayo Vallecano", "Sevilla", "Alaves", "Elche", "Mallorca", "Levente", "Oviedo"],
+    "Bundesliga": ["Bayer Leverkusen", "Bayern Münih", "Stuttgart", "RB Leipzig", " Borussia Dortmund", "Eintracht Frankfurt", "Hoffenheim", "Freiburg", "Union Berlin", "Ausburg", "Mainz 05", "Hamburg", "Borussia Mönchengladbach", "Werder Bremen", "Köln", "St. Pauli", "Wolfsburg", "Hiedenheim"],
+    "Serie A": ["Inter", "Milan", "Juventus", "Atalanta", "Napoli", "Roma", "Lazio", "Como", "Bologna", "Sassuolo", "Udinese", "Parma", "Genoa", "Torino", "Cagliari", "Fiorentina", "Cremonese", "Lecce", "Hellas Verona FC", "Pisa SC"],
+    "Ligue 1": ["PSG", "Monaco", "Brest", "Lille", "Nice", "Lyon", "Marsilya", "Lens", "Rennes", "Rc Strasbourg", "Toulouse", "Lorient", "Angers", "Paris FC", "Le Havre", "Nice", "Auxerre", "Nantes", "Metz"],
+    "Portekiz": ["Sporting CP", "Benfica", "Porto", "Braga",],
+    "Eredivisie": ["PSV", "Feyenoord", "Ajax", "Twente", "Az Alkmaar"],
+    "Arjantin": ["Boca Juniors", "River Plate"]
 }
 
 # --- 2. DURUM YÖNETİMİ ---
