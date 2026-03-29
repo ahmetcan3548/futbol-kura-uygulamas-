@@ -2,10 +2,10 @@ import streamlit as st
 import random
 import time
 
-# Sayfa Genişliği ve Tema Ayarları
+# Sayfa Ayarları
 st.set_page_config(page_title="2025-2026 Pro Kura", page_icon="⚽", layout="centered")
 
-# --- 1. GÜNCEL VERİ SETİ ---
+# --- 1. VERİ SETİ ---
 ligler_verisi = {
     "Süper Lig 🇹🇷": ["Galatasaray", "Fenerbahçe", "Beşiktaş", "Trabzonspor", "Başakşehir", "Samsunspor", "Eyüpspor", "Göztepe", "Bodrum FK"],
     "Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿": ["Man City", "Arsenal", "Liverpool", "Aston Villa", "Tottenham", "Man United", "Chelsea", "Newcastle"],
@@ -16,12 +16,9 @@ ligler_verisi = {
     "Portekiz 🇵🇹": ["Sporting CP", "Benfica", "Porto", "Braga", "Vitoria SC"]
 }
 
-# --- 2. DURUM YÖNETİMİ (Session State) ---
-# Uygulamanın hangi aşamada olduğunu takip eder (0: Seçim, 1: Kura)
+# --- 2. DURUM YÖNETİMİ ---
 if 'asama' not in st.session_state:
     st.session_state.asama = 0
-if 'secili_takimlar' not in st.session_state:
-    st.session_state.secili_takimlar = []
 
 # --- 3. EKRAN 1: LİG SEÇİMİ ---
 if st.session_state.asama == 0:
@@ -29,7 +26,6 @@ if st.session_state.asama == 0:
     st.write("Kura havuzuna dahil etmek istediğiniz ligleri işaretleyin.")
     
     secilenler = []
-    # Ligleri 2 sütun halinde göster
     cols = st.columns(2)
     for i, lig in enumerate(ligler_verisi.keys()):
         with cols[i % 2]:
@@ -39,10 +35,9 @@ if st.session_state.asama == 0:
     st.divider()
     
     if st.button("İLERLE 👉", use_container_width=True, type="primary"):
-        if len(secilenler) == 0:
+        if not secilenler:
             st.warning("Lütfen en az bir lig seçin!")
         else:
-            # Seçilen liglerdeki tüm takımları havuzla
             havuz = []
             for l in secilenler:
                 havuz.extend(ligler_verisi[l])
@@ -60,10 +55,8 @@ elif st.session_state.asama == 1:
     
     st.divider()
 
-    # Oyuncu Alanları (Yan Yana)
     col1, col2 = st.columns(2)
     
-    # Boş kutucuklar veya önceki sonuçlar
     with col1:
         p1_placeholder = st.empty()
         p1_placeholder.info("### OYUNCU 1\n# ---")
@@ -72,19 +65,18 @@ elif st.session_state.asama == 1:
         p2_placeholder.warning("### OYUNCU 2\n# ---")
 
     if st.button("KURA ÇEK 🎲", use_container_width=True, type="primary"):
-        # --- ANİMASYON EFEKTİ ---
-        for _ in range(20): # 20 kez hızlıca isim değiştir
+        # --- ANİMASYON ---
+        for _ in range(15): 
             t1 = random.choice(st.session_state.havuz)
             t2 = random.choice(st.session_state.havuz)
-            
             p1_placeholder.info(f"### OYUNCU 1\n# {t1}")
             p2_placeholder.warning(f"### OYUNCU 2\n# {t2}")
-            time.sleep(0.1) # Dönme hızı
+            time.sleep(0.1)
         
         # --- FİNAL SEÇİMİ ---
         final_1, final_2 = random.sample(st.session_state.havuz, 2)
         p1_placeholder.info(f"### OYUNCU 1\n# {final_1}")
         p2_placeholder.warning(f"### OYUNCU 2\n# {final_2}")
         
-        st.balloons()
-        st.success(f"Eşleşme Tamamlandı: **{final_1}** vs **{final_2}**")
+        # Balonlar (st.balloons()) buradan kaldırıldı.
+        st.success(f"Eşleşme Tamamlandı!")
